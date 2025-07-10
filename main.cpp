@@ -2,26 +2,26 @@
 #define CROW_USE_BOOST_ASIO
 #include "crow_all.h"
 #include "metro_graph.h"
-MetroGraph g; 
+MetroGraph g;   
 struct CORS {
     struct context {};
 
     void before_handle(crow::request& req, crow::response& res, context&) {
         res.add_header("Access-Control-Allow-Origin", "*");
         res.add_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-        res.add_header("Access-Control-Allow-Headers", "Origin, Content-Type, Accept, Authorization, X-Requested-With");
+        res.add_header("Access-Control-Allow-Headers", "Content-Type, Authorization, X-Requested-With, Accept, Origin");
 
         if (req.method == "OPTIONS"_method) {
-            res.code = 204;   // No Content
+            res.code = 204;  // No content
             res.end();
         }
     }
 
     void after_handle(crow::request&, crow::response& res, context&) {
         res.add_header("Access-Control-Allow-Origin", "*");
+        res.add_header("Access-Control-Allow-Headers", "Content-Type, Authorization, X-Requested-With, Accept, Origin");
     }
 };
-
 
 int main() {
 crow::App<CORS> app;
