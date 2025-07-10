@@ -8,10 +8,11 @@ struct CORS {
 
     void before_handle(crow::request& req, crow::response& res, context&) {
         res.add_header("Access-Control-Allow-Origin", "*");
-        res.add_header("Access-Control-Allow-Headers", "Origin, Content-Type, Accept, Authorization, X-Requested-With");
         res.add_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+        res.add_header("Access-Control-Allow-Headers", "Origin, Content-Type, Accept, Authorization, X-Requested-With");
+
         if (req.method == "OPTIONS"_method) {
-            res.code = 204;
+            res.code = 204;   // No Content
             res.end();
         }
     }
@@ -20,6 +21,7 @@ struct CORS {
         res.add_header("Access-Control-Allow-Origin", "*");
     }
 };
+
 
 int main() {
 crow::App<CORS> app;
