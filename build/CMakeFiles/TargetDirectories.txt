@@ -1,0 +1,3 @@
+/mnt/c/Users/SHOURYA/Desktop/metro_api/metro_api/build/CMakeFiles/metro_api.dir
+/mnt/c/Users/SHOURYA/Desktop/metro_api/metro_api/build/CMakeFiles/edit_cache.dir
+/mnt/c/Users/SHOURYA/Desktop/metro_api/metro_api/build/CMakeFiles/rebuild_cache.dir
